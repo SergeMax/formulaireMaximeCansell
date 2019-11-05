@@ -14,27 +14,27 @@ import javafx.stage.Stage;
 public class ViewHandler extends Application {
 
     private Stage primaryStage;
+    private   VBox vb;
 
 
     @Override
     public void start(Stage primaryStage) throws Exception {
 
         System.out.println("hello");
-       primaryStage.setTitle("VBox Test");
+       primaryStage.setTitle("Formulaire d'inscription pour le site de M. Boutboul");
 
         // VBox
-        VBox vb = new VBox();
+         vb = new VBox();
         vb.setPadding(new Insets(10, 50, 50, 50));
         vb.setSpacing(10);
+        vb.setMinWidth(500);
 
-        Label lbl = new Label("VBox");
-        lbl.setFont(Font.font("Amble CN", FontWeight.BOLD, 24));
-        vb.getChildren().add(lbl);
+        Label titreFormulaire = new Label("Formulaire d'inscription");
+        titreFormulaire.setFont(Font.font("Amble CN", FontWeight.BOLD, 24));
+        vb.getChildren().add(titreFormulaire);
 
         // Buttons
-        Button btn1 = new Button();
-        btn1.setText("Button1");
-        vb.getChildren().add(btn1);
+        Button btn1 = ajoutBoutton("validation 1");
 
         Button btn2 = new Button();
         btn2.setText("Button2");
@@ -54,4 +54,15 @@ public class ViewHandler extends Application {
         primaryStage.show();
 
     }
+
+    public Button ajoutBoutton(String setText){
+
+        Button nomBouton = new Button();
+        nomBouton.setText(setText);
+        vb.getChildren().add(nomBouton);
+
+        return nomBouton;
+
+    }
+
 }
