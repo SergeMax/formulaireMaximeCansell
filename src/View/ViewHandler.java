@@ -23,6 +23,25 @@ public class ViewHandler extends Application {
     private Controler controlerInscr;
     private ViewInscription mi;
     private ViewConnexion mc;
+    private ViewAffichageUtilisateur pro;
+    private Menu model;
+    private  VBox root;
+
+    public ViewAffichageUtilisateur getPro() {
+        return pro;
+    }
+
+    public ViewConnexion getMc() {
+        return mc;
+    }
+
+    public void setMc(ViewConnexion mc) {
+        this.mc = mc;
+    }
+
+    public Controler getControlerInscr() {
+        return controlerInscr;
+    }
 
 
     @Override
@@ -33,8 +52,8 @@ public class ViewHandler extends Application {
 
 
         this.primaryStage = primaryStage;
-        // root représente le panel qui va être affiché : tout ce qui doit être affiché doit lui être ajouté
-        VBox root = new VBox();
+
+        root = new VBox();
 
         root.setPadding(new Insets(50, 50, 50, 50));
         root.setSpacing(10);
@@ -42,27 +61,17 @@ public class ViewHandler extends Application {
 
         Scene inscritpion = new Scene(root, Color.WHITE);
 
-        Menu model = new Menu();
+        model = new Menu();
 
         mi = new ViewInscription(model, root);
         mc = new ViewConnexion(model, root);
 
-        //  mo = new ViewChoixVaisseaux(model, root);
-        //game = new ViewGame(model, root);
         controlerInscr = new Controler(this, model);
-      //  controllerJeux = new ControllerJeux(this, model);
-        afficherInscription();
-        /*Button btn4 = new Button();
-        btn4.setText("Button4");
-        vb.getChildren().add(btn4);*/
 
-        // Adding VBox to the scene
+        afficherInscription();
 
         primaryStage.setScene(inscritpion);
-        //primaryStage.show();
-        //   primaryStage.setFullScreenExitHint("");
         primaryStage.setResizable(true);
-        // primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.show();
 
     }
@@ -74,20 +83,10 @@ public class ViewHandler extends Application {
 
     public void setEventHandlerInscription(Controler inscr) {
         mi.setEvents(inscr);
-        // game.setEvents(cm);
+        mc.setEvents(inscr);
+
     }
 
-
-
-   /* public Button ajoutBoutton(String setText){
-
-        Button nomBouton = new Button();
-        nomBouton.setText(setText);
-        vb.getChildren().add(nomBouton);
-
-        return nomBouton;
-
-    }*/
 
     public ViewInscription getMi() {
         return mi;
@@ -96,4 +95,11 @@ public class ViewHandler extends Application {
     public void afficherConnexion() {
         mc.setVueCompleteConnexion();
     }
+
+    public void afficherProfil() {
+        pro = new ViewAffichageUtilisateur(model, root);
+
+        pro.setVueCompleteProfil();
+    }
+
 }

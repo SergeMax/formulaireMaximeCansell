@@ -17,8 +17,7 @@ public class ViewConnexion {
         private VBox root;
         private Label titreFormulaire ;
         private TextField loginTextField;
-        private TextField mdp;
-        private TextField nom;
+        private TextField mdpTextField;
         private TextField prenom;
         private TextField adresse;
         private TextField codePostale;
@@ -26,9 +25,8 @@ public class ViewConnexion {
         private TextField adresseEmail;
         private Button buttonConnexion;
         private Label seConnecter;
-    private Label labelMdp;
-    private Label labelLogin;
-    private TextField mdpTextField;
+        private Label labelMdp;
+        private Label labelLogin;
 
 
     public ViewConnexion(Menu model, VBox vb) {
@@ -43,9 +41,7 @@ public class ViewConnexion {
             initLabelMdp();
             initTextFieldMdp();
             setVueCompleteConnexion();
-            //  initListeImage();
-            // initVaisseauxCoin();
-            //   setVueCompleteMenu();
+
         }
 
     private void initLabelMdp() {

@@ -2,10 +2,7 @@ package View;
 
 import Controler.Controler;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -20,7 +17,7 @@ public class ViewInscription {
     private VBox root;
     private Label titreFormulaire ;
     private TextField login;
-    private TextField mdp;
+    private PasswordField mdp;
     private TextField nom;
     private TextField prenom;
     private TextField adresse;
@@ -37,53 +34,74 @@ public class ViewInscription {
     private Label  villeLabel;
     private Label  adresseEmailLabel;
 
+    /*private String login1;
+    private String nom1;
+    private String prenom1;
+    private String adresse1;
+    private String codePostale1;
+    private String ville1;
+
+    public String getLogin1() {
+        return login1;
+    }
+
+    public void setLogin1(String login1) {
+        this.login1 = login1;
+    }
+
+    public String getNom1() {
+        return nom1;
+    }
+
+    public void setNom1(String nom1) {
+        this.nom1 = nom1;
+    }
+
+    public String getPrenom1() {
+        return prenom1;
+    }
+
+    public void setPrenom1(String prenom1) {
+        this.prenom1 = prenom1;
+    }
+
+    public String getAdresse1() {
+        return adresse1;
+    }
+
+    public void setAdresse1(String adresse1) {
+        this.adresse1 = adresse1;
+    }
+
+    public String getCodePostale1() {
+        return codePostale1;
+    }
+
+    public void setCodePostale1(String codePostale1) {
+        this.codePostale1 = codePostale1;
+    }
+
+    public String getVille1() {
+        return ville1;
+    }
+
+    public void setVille1(String ville1) {
+        this.ville1 = ville1;
+    }
+
+    public String getAdresseEmail1() {
+        return adresseEmail1;
+    }
+
+    public void setAdresseEmail1(String adresseEmail1) {
+        this.adresseEmail1 = adresseEmail1;
+    }
+*/
+    private String adresseEmail1;
+
+
 
     private Button buttonValider;
-
-     /*   vb = new VBox();
-        vb.setPadding(new Insets(10, 50, 50, 50));
-        vb.setSpacing(10);
-        vb.setMinWidth(500);
-
-    Label titreFormulaire = new Label("Formulaire d'inscription");
-        titreFormulaire.setFont(Font.font("Amble CN", FontWeight.BOLD, 24));
-        vb.getChildren().add(titreFormulaire);
-
-    TextField login = new TextField("Login");
-        login.setMinWidth(120);
-        vb.getChildren().add(login);
-
-    TextField mdp = new TextField("Mots de passe");
-        mdp.setMinWidth(120);
-        vb.getChildren().add(mdp);
-
-    TextField nom = new TextField("Nom");
-        nom.setMinWidth(120);
-        vb.getChildren().add(nom);
-
-    TextField prenom = new TextField("Prenom");
-        prenom.setMinWidth(120);
-        vb.getChildren().add(prenom);
-
-    TextField adresse = new TextField("Adresse");
-        adresse.setMinWidth(120);
-        vb.getChildren().add(adresse);
-
-    TextField codePostale = new TextField("Code Postal");
-        codePostale.setMinWidth(120);
-        vb.getChildren().add(codePostale);
-
-    TextField ville = new TextField("Ville");
-        ville.setMinWidth(120);
-        vb.getChildren().add(ville);
-
-    TextField adresseEmail = new TextField("Adresse Email");
-        adresseEmail.setMinWidth(120);
-        vb.getChildren().add(adresseEmail);
-
-    // Buttons
-    Button btn1 = ajoutBoutton("Valider l'inscription");*/
-
 
     public ViewInscription(Menu model, VBox vb) {
 
@@ -172,7 +190,7 @@ public class ViewInscription {
     }
 
     private void initMdp() {
-        mdp = new TextField("");
+        mdp = new PasswordField();
         mdp.setMinWidth(120);
     }
 
@@ -212,10 +230,8 @@ public class ViewInscription {
     }
 
     private void initButtonValider() {
-
         buttonValider = new Button();
         buttonValider.setText("Vous inscrire maintenant");
-
 
     }
 
@@ -261,6 +277,38 @@ public class ViewInscription {
 
     public Button getButtonValider() {
         return buttonValider;
+    }
+
+    public TextField getLogin() {
+        return login;
+    }
+
+    public PasswordField getMdp() {
+        return mdp;
+    }
+
+    public TextField getNom() {
+        return nom;
+    }
+
+    public TextField getPrenom() {
+        return prenom;
+    }
+
+    public TextField getAdresse() {
+        return adresse;
+    }
+
+    public TextField getCodePostale() {
+        return codePostale;
+    }
+
+    public TextField getVille() {
+        return ville;
+    }
+
+    public TextField getAdresseEmail() {
+        return adresseEmail;
     }
 
 }
