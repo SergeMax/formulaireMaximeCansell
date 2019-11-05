@@ -1,12 +1,17 @@
 package View;
 
 
+import Controler.Controler;
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
@@ -14,7 +19,10 @@ import javafx.stage.Stage;
 public class ViewHandler extends Application {
 
     private Stage primaryStage;
-    private   VBox vb;
+    private VBox vb;
+    private Controler controlerInscr;
+    private ViewInscription mi;
+    private ViewConnexion mc;
 
 
     @Override
@@ -23,39 +31,55 @@ public class ViewHandler extends Application {
         System.out.println("hello");
        primaryStage.setTitle("Formulaire d'inscription pour le site de M. Boutboul");
 
-        // VBox
-         vb = new VBox();
-        vb.setPadding(new Insets(10, 50, 50, 50));
-        vb.setSpacing(10);
-        vb.setMinWidth(500);
 
-        Label titreFormulaire = new Label("Formulaire d'inscription");
-        titreFormulaire.setFont(Font.font("Amble CN", FontWeight.BOLD, 24));
-        vb.getChildren().add(titreFormulaire);
+        this.primaryStage = primaryStage;
+        // root représente le panel qui va être affiché : tout ce qui doit être affiché doit lui être ajouté
+        VBox root = new VBox();
 
-        // Buttons
-        Button btn1 = ajoutBoutton("validation 1");
+        root.setPadding(new Insets(50, 50, 50, 50));
+        root.setSpacing(10);
+        root.setMinWidth(500);
 
-        Button btn2 = new Button();
-        btn2.setText("Button2");
-        vb.getChildren().add(btn2);
+        Scene inscritpion = new Scene(root, Color.WHITE);
 
-        Button btn3 = new Button();
-        btn3.setText("Button3");
-        vb.getChildren().add(btn3);
+        Menu model = new Menu();
 
-        Button btn4 = new Button();
+        mi = new ViewInscription(model, root);
+        mc = new ViewConnexion(model, root);
+
+        //  mo = new ViewChoixVaisseaux(model, root);
+        //game = new ViewGame(model, root);
+        controlerInscr = new Controler(this, model);
+      //  controllerJeux = new ControllerJeux(this, model);
+        afficherInscription();
+        /*Button btn4 = new Button();
         btn4.setText("Button4");
-        vb.getChildren().add(btn4);
+        vb.getChildren().add(btn4);*/
 
         // Adding VBox to the scene
-        Scene scene = new Scene(vb);
-        primaryStage.setScene(scene);
+
+        primaryStage.setScene(inscritpion);
+        //primaryStage.show();
+        //   primaryStage.setFullScreenExitHint("");
+        primaryStage.setResizable(true);
+        // primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.show();
 
     }
 
-    public Button ajoutBoutton(String setText){
+    private void afficherInscription() {
+        mi.setVueCompleteInscription();
+        System.out.println("ca passer par la");
+    }
+
+    public void setEventHandlerInscription(Controler inscr) {
+        mi.setEvents(inscr);
+        // game.setEvents(cm);
+    }
+
+
+
+   /* public Button ajoutBoutton(String setText){
 
         Button nomBouton = new Button();
         nomBouton.setText(setText);
@@ -63,6 +87,13 @@ public class ViewHandler extends Application {
 
         return nomBouton;
 
+    }*/
+
+    public ViewInscription getMi() {
+        return mi;
     }
 
+    public void afficherConnexion() {
+        mc.setVueCompleteConnexion();
+    }
 }
